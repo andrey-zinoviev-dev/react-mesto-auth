@@ -28,7 +28,7 @@ function Header(props) {
     
     return (
         <header className="header">
-            {showUser && hideUser ? <div className="header__showedUser"><span>{props.user}</span><a className="header__action header__action_loggedIn" href="/" onClick={handleLogout}>Выйти</a></div> : ""}
+            {showUser && hideUser ? <div className="header__showedUser"><span>{props.user}</span><a className="header__action header__action_loggedIn" href="/" onClick={props.loggedIn ? handleLogout: ""}>{props.loggedIn ? "Выйти" : loginType ? "Регистрация" : "Войти"}</a></div> : ""}
             <div className="header__wrapper">
                 <img className="header__logo" src={headerLogo} alt="Логотип Место" />
                 <div className="header__user-action">
