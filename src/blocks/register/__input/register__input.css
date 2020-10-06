@@ -1,0 +1,8 @@
+.register__input {
+    background: black;
+    border-bottom: 2px solid #CCCCCC;
+    color: white;
+}
+.register__input::placeholder {
+    color: #CCCCCC;
+}

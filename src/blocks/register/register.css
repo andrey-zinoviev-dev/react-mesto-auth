@@ -1,0 +1,12 @@
+@import url(./__heading/register__heading.css);
+@import url(./__input/register__input.css);
+@import url(./__input-error-span/register__input-error-span.css);
+@import url(./__form-submit/register__form-submit.css);
+@import url(./__redirect/register__redirect.css);
+@import url(./__redirect-action/register__redirect-action.css);
+.register {
+    max-width: 430px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 80px;
+}

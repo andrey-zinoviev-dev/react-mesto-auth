@@ -1,0 +1,9 @@
+.profile__image-wrapper {
+    position: relative;
+}
+.profile__image-wrapper:hover .profile__avatar-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.profile__image-wrapper:hover .profile__avatar-edit-sign {
+    opacity: 1;
+}

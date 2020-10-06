@@ -1,0 +1,10 @@
+/* .header__user-action { 
+     background-image: url('../../../images/Group\ 5.png'); 
+}*/
+@media screen and (max-width: 767px) {
+    .header__user-action {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+    }
+}

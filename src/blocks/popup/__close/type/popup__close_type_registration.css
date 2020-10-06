@@ -1,0 +1,10 @@
+/* .popup__close_type_registration {
+    left: 45%;
+    top: -25%;
+} */
+@media screen and (max-width: 767px) {
+    .popup__close_type_registration {
+        left: 45%;
+        top: -15%;
+    }
+}

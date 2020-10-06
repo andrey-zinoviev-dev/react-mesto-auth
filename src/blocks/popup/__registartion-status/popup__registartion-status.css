@@ -1,0 +1,8 @@
+.popup__registration-status {
+    margin: 60px 155px 0;
+}
+@media screen and (max-width: 767px) {
+    .popup__registration-status {
+        margin: 50px 80px 0;
+    }
+}

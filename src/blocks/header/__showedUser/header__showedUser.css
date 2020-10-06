@@ -1,0 +1,7 @@
+.header__showedUser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 13px 89px 60px;
+    border-bottom: 1px solid #545454;
+}

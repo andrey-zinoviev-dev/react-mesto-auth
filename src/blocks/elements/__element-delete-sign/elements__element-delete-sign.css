@@ -1,0 +1,10 @@
+.elements__element-delete-sign {
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    transition: opacity linear 0.2s;
+    cursor: pointer;
+}
+.elements__element-delete-sign:hover {
+    opacity: 0.6;
+}

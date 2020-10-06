@@ -1,0 +1,10 @@
+@import url(./__list/elements__list.css);
+@import url(./__element/elements__element.css);
+@import url(./__element-photo/elements__element-photo.css);
+@import url(./__element-rectangle/elements__element-rectangle.css);
+@import url(./__element-text/elements__element-text.css);
+@import url(./__element-like/elements__element-like.css);
+@import url(./__element-like-sign/elements__element-like-sign.css);
+@import url(./__element-delete-sign/elements__element-delete-sign.css);
+@import url(./__element-like-count/elements__element-like-count.css);
+@import url(./__element-like-number/elements__element-like-number.css);

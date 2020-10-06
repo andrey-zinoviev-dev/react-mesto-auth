@@ -1,0 +1,13 @@
+.popup__edit-button {
+    display: inline-block;
+    padding: 14px calc((100% - 125px)/2) 19px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    transition: opacity linear 0.4s;
+}
+.popup__edit-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

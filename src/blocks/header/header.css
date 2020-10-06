@@ -1,0 +1,35 @@
+@import url(./__wrapper/header__wrapper.css);
+@import url(./__user-action/header__user-action.css);
+@import url(./__user-action-close/header__user-action-close.css);
+@import url(./__user-action-email/header__user-action-email.css);
+@import url(./__logo/header__logo.css);
+@import url(./__action/header__action.css);
+@import url(./__showedUser/header__showedUser.css);
+.header {
+    margin: 0 199px 37px 199px;
+    border-bottom: 1px solid #545454;
+    padding-top: 45px;
+    padding-bottom: 41px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+@media screen and (max-width: 1279px) {
+    .header {
+        margin: 0 129px 37px 129px;
+        padding-top: 45px;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .header {
+        margin: 0 49px 37px 49px;
+        padding-top: 45px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .header {
+        margin: 0 0 38px 0;
+        padding-top: 27px;
+        padding-bottom: 31px;
+    }
+}

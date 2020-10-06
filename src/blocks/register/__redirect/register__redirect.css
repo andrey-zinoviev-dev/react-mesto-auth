@@ -1,0 +1,9 @@
+.register__redirect {
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.3s linear;
+}
+.register__redirect:hover {
+    opacity: 0.6;
+}

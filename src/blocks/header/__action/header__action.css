@@ -1,0 +1,14 @@
+.header__action {
+    text-decoration: none;
+    color: #FFFFFF;
+    /* margin-left: 24px; */
+    transition: opacity 0.3s linear;
+}
+.header__action:hover {
+    opacity: 0.6;
+}
+@media screen and (max-width: 768px) {
+    .header__action {
+        margin-top: 18px;
+    }
+}

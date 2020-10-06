@@ -1,0 +1,10 @@
+.profile__avatar-edit-sign {
+    position: absolute;
+    margin: 47px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s linear;
+    cursor: pointer;
+}

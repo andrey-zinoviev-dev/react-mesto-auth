@@ -1,0 +1,5 @@
+@media screen and (max-width: 767px) {
+    .popup__close-sign_registration {
+        max-width: 30px;
+    }
+}

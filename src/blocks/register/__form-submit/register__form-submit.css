@@ -1,0 +1,13 @@
+.register__form-submit {
+    padding: 14px 84px;
+    margin-bottom: 15px;
+    transition: opacity 0.3s linear;
+}
+.register__form-submit:hover {
+    opacity: 0.85;
+}
+@media screen and (max-width: 767px) {
+    .register__form-submit {
+        padding: 14px 35px;
+    }
+}

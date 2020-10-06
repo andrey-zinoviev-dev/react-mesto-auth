@@ -1,0 +1,12 @@
+.elements__element-like {
+    padding: 0;
+    border: 0;
+    background-color: white;
+    max-height: 19px;
+    transition: opacity linear 0.2s;
+    cursor: pointer;
+    outline: none;
+}
+.elements__element-like:hover {
+    opacity: 0.6;
+}

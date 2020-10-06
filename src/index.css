@@ -1,0 +1,35 @@
+@import url(./vendor/normalize.css);
+/* @import url(./fonts/inter.css); */
+@import url(./blocks/root/root.css);
+@import url(./blocks/container/container.css);
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__action/_loggedIn/header__action_loggedIn.css);
+@import url(./blocks/content/content.css);
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/elements/elements.css);
+/* @import url(./blocks/elements/__element-delete-sign/elements__element-delete-sign.css); */
+@import url(./blocks/elements/__element-delete-sign/_deactivated/elements__element-delete-sign_deactivated.css);
+@import url(./blocks/elements/__element/_status/elements__element_status_deleted.css);
+@import url(./blocks/elements/__element-like-sign/_status/elements__element-like-sign_status_active.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__close/type/popup__close_type_registration.css);
+@import url(./blocks/popup/__close-sign/_type/popup__close-sign_registration.css);
+@import url(./blocks/popup/__input-error-message/_order/popup__input-error-message_order_second.css);
+@import url(./blocks/popup/__overlay/_type/popup__overlay_type_image.css);
+@import url(./blocks/popup/__edit-button/_inactive/popup__edit-button_inactive.css);
+@import url(./blocks/popup/_type/popup_picture.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_image.css);
+@import url(./blocks/popup/__form/_type/popup__form_type_user-edit.css);
+@import url(./blocks/popup/__form/_type/popup__form_type_addCard-form.css);
+@import url(./blocks/popup/__form/_type/popup__form_type_change-avatar.css);
+@import url(./blocks/popup/__input/_order/popup__input_order_first.css);
+@import url(./blocks/popup/__input/_order/popup__input_order_second.css);
+@import url(./blocks/popup/__input/_place-name/popup__input_place-name.css);
+@import url(./blocks/popup/__input/_image-link/popup__input_image-link.css);
+@import url(./blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(./blocks/popup/__input/_type/popup__input_type_avatar-link.css);
+@import url(./blocks/popup/__form/_type/popup__form_type_delete-card.css);
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/register/register.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_registration.css);
