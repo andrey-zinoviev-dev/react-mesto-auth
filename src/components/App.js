@@ -88,18 +88,37 @@ function App() {
     setSelectedCard(data);
   }
 
-  function getDataFromServer() {
-    api.getUser()
+  // function getDataFromServer() {
+  //   api.getUser()
+  //   .then((data) => {
+  //     setCurrentUser(data);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   })
+  // }
+
+  // function getCardsFromServer () {
+  //   api.getInitialCards()
+  //     .then((data) => {
+  //       setCards(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
+
+  React.useEffect(() => {
+    // getDataFromServer();
+    Promise.all([api.getUser(), api.getInitialCards()])
     .then((data) => {
-      setCurrentUser(data);
+      const [user, cards] = data;
+      setCurrentUser(user);
+      setCards(cards);
     })
     .catch((err) => {
       console.log(err);
     })
-  }
-
-  React.useEffect(() => {
-    getDataFromServer();
   },[])
 
   function handleUpdateUser(data) {
@@ -125,40 +144,27 @@ function App() {
 
   const [cards, setCards] = React.useState([]);
 
-  React.useEffect(() => {
-      function getCardsFromServer () {
-          api.getInitialCards()
-          .then((data) => {
-              setCards(data);
-          })
-          .catch((err) => {
-              console.log(err);
-          });
-      }
-
-      getCardsFromServer();
-  }, [])
+  function handleLikeClick(data, isLiked) {
+    const newCards = cards.map((oldCard) => {
+      return oldCard._id === data._id ? (data) : (oldCard)
+    })
+    setCards(newCards);
+    isLiked = !isLiked;
+  }
 
   function handleCardLike(card) {
       let isLiked = card.likes.some((like) => {return like._id === currentUser._id})
       if(!isLiked) {
           api.setLike(card._id)
           .then((data) => {
-          const newCards = cards.map((oldCard) => {
-              return oldCard._id === data._id ? (data) : (oldCard)
-          })
-          setCards(newCards);
-          isLiked = !isLiked;
+          handleLikeClick(data, isLiked);
       })} else {
           api.removeLike(card._id)
           .then((data) => {
-              const newCards = cards.map((oldCard) => {
-                  return oldCard._id === data._id ? (data) : (oldCard)
-              })
-              setCards(newCards);
-              isLiked = !isLiked;
+            handleLikeClick(data, isLiked);
           })
       }
+      handleLikeClick(card);
   }
 
   function handleDeleteCardClick(card) {
@@ -216,8 +222,10 @@ function App() {
       .then((res) => {
         if(res) {
           enableLoggedInState();
-          setAuthentificatedUser(res.data.email)
+          setAuthentificatedUser(res.data.email);
           history.push('/');
+        } else {
+          localStorage.removeItem('token');
         }
       })
     }

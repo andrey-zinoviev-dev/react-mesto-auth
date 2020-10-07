@@ -3,23 +3,18 @@ import { login, authentificateOnLoad  } from '../utils/mestoAuth';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
 export function Login(props) {
-    const [email,  setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [formData, setFormData] = React.useState({ email:"", password: ""})
     const history = useHistory();
     const { url } = useRouteMatch();
     
     function handleChange(event) {
         const { name, value } = event.target;
-        if(name === "email") {
-            setEmail(value);
-        }
-        if(name === "password") {
-            setPassword(value);
-        }
+        setFormData(prevData => ({...prevData, [name]: value}));
     }
     function handleSubmit(event) {
         event.preventDefault();
-        login(email, password).then((res) => {
+        login(formData)
+        .then((res) => {
             if(res.token) {
                 props.handleLogin();
                 const token = localStorage.getItem('token');
