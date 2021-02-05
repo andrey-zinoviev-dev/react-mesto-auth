@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45f56040a2073f7f9918b03ebc8560f8",
+    "revision": "3c77060707295460b128bdb19c019b7c",
     "url": "/andrey-zinoviev-dev/react-mesto-auth/index.html"
   },
   {
-    "revision": "8b12845e283b641309de",
+    "revision": "6b92333e30938241210e",
     "url": "/andrey-zinoviev-dev/react-mesto-auth/static/css/main.62c97155.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8b12845e283b641309de",
-    "url": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.68606b81.chunk.js"
+    "revision": "6b92333e30938241210e",
+    "url": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.136599f9.chunk.js"
   },
   {
     "revision": "26aa2daa84c15aa76734",
