@@ -221,7 +221,7 @@ function App() {
       setWindowWidth(window.innerWidth);
     })
   }, [windowWidth]);
-
+  console.log(process.env.PUBLIC_URL);
   return (
     <div className="root">
       <div className="container">
