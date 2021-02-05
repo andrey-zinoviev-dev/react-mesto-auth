@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/andrey-zinoviev-dev/react-mesto-auth/static/css/main.62c97155.chunk.css",
-    "main.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.143603b5.chunk.js",
-    "main.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.143603b5.chunk.js.map",
+    "main.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.03cbaaad.chunk.js",
+    "main.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.03cbaaad.chunk.js.map",
     "runtime-main.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/runtime-main.dfcbbb93.js",
     "runtime-main.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/runtime-main.dfcbbb93.js.map",
     "static/js/2.87714648.chunk.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js",
     "static/js/2.87714648.chunk.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js.map",
     "index.html": "/andrey-zinoviev-dev/react-mesto-auth/index.html",
-    "precache-manifest.21c1687200101d47bb377e81ac4a2d29.js": "/andrey-zinoviev-dev/react-mesto-auth/precache-manifest.21c1687200101d47bb377e81ac4a2d29.js",
+    "precache-manifest.51a1d3f285646a3c7608e47a16a95c30.js": "/andrey-zinoviev-dev/react-mesto-auth/precache-manifest.51a1d3f285646a3c7608e47a16a95c30.js",
     "service-worker.js": "/andrey-zinoviev-dev/react-mesto-auth/service-worker.js",
     "static/css/main.62c97155.chunk.css.map": "/andrey-zinoviev-dev/react-mesto-auth/static/css/main.62c97155.chunk.css.map",
     "static/js/2.87714648.chunk.js.LICENSE.txt": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.dfcbbb93.js",
     "static/js/2.87714648.chunk.js",
     "static/css/main.62c97155.chunk.css",
-    "static/js/main.143603b5.chunk.js"
+    "static/js/main.03cbaaad.chunk.js"
   ]
 }
