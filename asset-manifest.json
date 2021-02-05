@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "./static/css/main.bef3e652.chunk.css",
-    "main.js": "./static/js/main.cfe1f878.chunk.js",
-    "main.js.map": "./static/js/main.cfe1f878.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.e48908e9.js",
-    "runtime-main.js.map": "./static/js/runtime-main.e48908e9.js.map",
-    "static/js/2.87714648.chunk.js": "./static/js/2.87714648.chunk.js",
-    "static/js/2.87714648.chunk.js.map": "./static/js/2.87714648.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.d3eab4c2f66e394857828bc2c48ffd13.js": "./precache-manifest.d3eab4c2f66e394857828bc2c48ffd13.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.bef3e652.chunk.css.map": "./static/css/main.bef3e652.chunk.css.map",
-    "static/js/2.87714648.chunk.js.LICENSE.txt": "./static/js/2.87714648.chunk.js.LICENSE.txt",
-    "static/media/Vector.svg": "./static/media/Vector.855a8c98.svg",
-    "static/media/like.svg": "./static/media/like.6c74d9b5.svg",
-    "static/media/index.css": "./static/media/like_active.9fdebb6b.svg"
+    "main.css": "/andrey-zinoviev-dev/react-mesto-auth/static/css/main.62c97155.chunk.css",
+    "main.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.143603b5.chunk.js",
+    "main.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/main.143603b5.chunk.js.map",
+    "runtime-main.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/runtime-main.dfcbbb93.js",
+    "runtime-main.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/runtime-main.dfcbbb93.js.map",
+    "static/js/2.87714648.chunk.js": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js",
+    "static/js/2.87714648.chunk.js.map": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js.map",
+    "index.html": "/andrey-zinoviev-dev/react-mesto-auth/index.html",
+    "precache-manifest.21c1687200101d47bb377e81ac4a2d29.js": "/andrey-zinoviev-dev/react-mesto-auth/precache-manifest.21c1687200101d47bb377e81ac4a2d29.js",
+    "service-worker.js": "/andrey-zinoviev-dev/react-mesto-auth/service-worker.js",
+    "static/css/main.62c97155.chunk.css.map": "/andrey-zinoviev-dev/react-mesto-auth/static/css/main.62c97155.chunk.css.map",
+    "static/js/2.87714648.chunk.js.LICENSE.txt": "/andrey-zinoviev-dev/react-mesto-auth/static/js/2.87714648.chunk.js.LICENSE.txt",
+    "static/media/Vector.svg": "/andrey-zinoviev-dev/react-mesto-auth/static/media/Vector.855a8c98.svg",
+    "static/media/like.svg": "/andrey-zinoviev-dev/react-mesto-auth/static/media/like.6c74d9b5.svg",
+    "static/media/index.css": "/andrey-zinoviev-dev/react-mesto-auth/static/media/like_active.9fdebb6b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e48908e9.js",
+    "static/js/runtime-main.dfcbbb93.js",
     "static/js/2.87714648.chunk.js",
-    "static/css/main.bef3e652.chunk.css",
-    "static/js/main.cfe1f878.chunk.js"
+    "static/css/main.62c97155.chunk.css",
+    "static/js/main.143603b5.chunk.js"
   ]
 }
