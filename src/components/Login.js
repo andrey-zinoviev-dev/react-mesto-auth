@@ -44,6 +44,7 @@ export function Login(props) {
     //вот тут менять стейт!!!
     React.useEffect(() => {
         props.setTypeOfHeader(url);
+        console.log(url);
     }, [])
     return (
         <section className="register">
