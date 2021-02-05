@@ -6,15 +6,29 @@ export function EditProfilePopup(props) {
 
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
-
+    const [nameError, setNameError] = React.useState("");
+    const [descriptionError, setDescriptionError] = React.useState("");
+    let submitFormButtonInactive = true;
+    const user = React.useContext(CurrentUserContext);
     function handleNameChange(e) {
         setName(e.target.value);
+        if(!e.target.validity.valid) {
+            setNameError(e.target.validationMessage);
+        } else {
+            setNameError("");
+        }
     }
     function handleSubtitleChange(e) {
+        validateForm();
         setDescription(e.target.value);
+        if(!e.target.validity.valid) {
+            setDescriptionError(e.target.validationMessage);
+        } else {
+            setDescriptionError("");
+        }
     }
 
-    const user = React.useContext(CurrentUserContext);
+    
     
     React.useEffect(() => {
        if(user === undefined) {
@@ -34,9 +48,17 @@ export function EditProfilePopup(props) {
         })
     }
     
+    function validateForm() {
+        if(!nameError && !descriptionError) {
+            submitFormButtonInactive = false;
+        } else {
+            submitFormButtonInactive = true;
+        }
+    }
+    validateForm();
 
     return (
-        <PopupWithForm name="popup" title="Редактировать профиль" formClass="popup__form_type_user-edit" submitButtonClass="" submitButtonText="Сохранить" isOpen={props.isOpen} onClose={props.onClose} closePopups={props.closePopups} onSubmit={handleSubmit} dataLoading={props.dataLoading}>
+        <PopupWithForm submitButtonState={submitFormButtonInactive} name="popup" title="Редактировать профиль" formClass="popup__form_type_user-edit" submitButtonClass="" submitButtonText="Сохранить" isOpen={props.isOpen} onClose={props.onClose} closePopups={props.closePopups} onSubmit={handleSubmit} dataLoading={props.dataLoading}>
             <>
                 <input id="username-input" value={name} className="popup__input popup__input_order_first" name="username" type="text" required minLength="2" maxLength="40" pattern="[A-Za-zА-Яа-я -]{2,40}" autoComplete="off" onChange={handleNameChange} />
                 <span id="username-input-error" className="popup__input-error-message"></span>

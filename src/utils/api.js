@@ -1,4 +1,5 @@
 import React from 'react';
+// import { baseUrl } from './mestoAuth';
 
 class Api extends React.Component {
     constructor({baseUrl, headers}) {
@@ -13,27 +14,35 @@ class Api extends React.Component {
         return Promise.reject(`Ошибка: ${res.status}`);
     }
     _handleErrorResponse(err) {
-        console.log(err.message);
         return Promise.reject(`Ошибка: ${err.message}`);
     }
-    getUser() {
+    getUser(token) {
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
         })
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
     }
-    getInitialCards() {
+    getInitialCards(token) {
         return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
         })
         .then(this._handleResponse)
         .catch(this._handleResponse)
     }
-    editProfile(formData) {
+    editProfile(formData, token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
             body: JSON.stringify({
                 name: formData.name,
                 about: formData.about,
@@ -42,10 +51,13 @@ class Api extends React.Component {
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
     }
-    addCard(formData) {
+    addCard(formData, token) {
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
             body: JSON.stringify({
                 link: formData.link,
                 name: formData.name
@@ -54,34 +66,46 @@ class Api extends React.Component {
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
     }
-    deleteCard(cardId) {
+    deleteCard(cardId, token) {
         return fetch(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
         })
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
     }
-    setLike(cardId) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    setLike(cardId, token) {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'PUT',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
         })
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
     }
-    removeLike(cardId) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    removeLike(cardId, token) {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'DELETE',
-            headers: this._headers
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
         })
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
     }
-   updateAvatar(formData) {
+    updateAvatar(formData, token) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
            method: 'PATCH',
-           headers: this._headers,
+           headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            },
            body: JSON.stringify({
                avatar: formData.avatar
            })
@@ -89,15 +113,56 @@ class Api extends React.Component {
         .then(this._handleResponse)
         .catch(this._handleErrorResponse)
    }
+   login(formData) {
+        return fetch(`${this._baseUrl}/signin`, {
+           method: "POST",
+           headers: this._headers,
+           body: JSON.stringify({
+               email: formData.email,
+               password: formData.password
+           })
+       })
+       .then(this._handleResponse)
+       .catch(this._handleErrorResponse)
+   }
+   register(email, password ) {
+        return fetch(`${this._baseUrl}/signup`, {
+           method: 'POST',
+           headers: this._headers,
+           body: JSON.stringify({
+               email: email,
+               password: password
+           })
+        })
+        .then(this._handleResponse)
+        .catch(this._handleErrorResponse)
+   }
+//    getCurrentUser(token) {
+//         return fetch(`${this._baseUrl}/users/me`, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`,
+//             }
+//         })
+//         .then(this._handleResponse)
+//         .catch(this._handleErrorResponse)
+//    }
 }
 
+// export const api = new Api({
+//     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-13',
+//     headers: {
+//         authorization: '12f43955-076f-4f9d-b681-082f556a73e2',
+//         'Content-Type': 'application/json'
+//     }
+// })
+
 export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-13',
+    baseUrl: 'https://api.scp.students.nomoreparties.space',
     headers: {
-        authorization: '12f43955-076f-4f9d-b681-082f556a73e2',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
 })
-
 
 // export default api;

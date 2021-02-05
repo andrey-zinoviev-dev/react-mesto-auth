@@ -53,10 +53,10 @@ export function AddCardPopup(props) {
     function validateForm() {
         if(!nameError && !linkError) {
             submitButtonIsInactive =  false;
-            console.log(submitButtonIsInactive);
+            // console.log(submitButtonIsInactive);
         } else {
             submitButtonIsInactive = true;
-            console.log(submitButtonIsInactive);
+            // console.log(submitButtonIsInactive);
         }
     }
 
@@ -67,7 +67,7 @@ export function AddCardPopup(props) {
             <>
                 <input id="place-name-input" className="popup__input popup__input_order_first popup__input_place-name" name="place-name" type="text" placeholder="Название" required minLength="1" maxLength="30" autoComplete="off" onChange={handleNameChange} />
     <span id="place-name-input-error" className="popup__input-error-message">{nameError}</span>
-                <input id="palce-image-link-input" className="popup__input popup__input_order_second popup__input_image-link" name="palce-image-link" placeholder="Ссылка на картинку" required type="url" autoComplete="off" onChange={handleLinkChange} />
+                <input id="palce-image-link-input" className="popup__input popup__input_order_second popup__input_image-link" name="palce-image-link" placeholder="Ссылка на картинку" required type="url" autoComplete="off" onChange={handleLinkChange} pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+=]+$" />
     <span id="palce-image-link-input-error" className="popup__input-error-message popup__input-error-message_order_second">{linkError}</span>
             </>
         </PopupWithForm>

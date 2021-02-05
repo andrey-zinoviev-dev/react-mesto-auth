@@ -30,7 +30,7 @@ import {InfoToolTip} from './InfoTooltip';
 
 import ProtectedRoute from './ProtectedRoute';
 
-import { authentificateOnLoad } from '../utils/mestoAuth';
+// import { authentificateOnLoad } from '../utils/mestoAuth';
 
 function App() {
 
@@ -88,42 +88,10 @@ function App() {
     setSelectedCard(data);
   }
 
-  // function getDataFromServer() {
-  //   api.getUser()
-  //   .then((data) => {
-  //     setCurrentUser(data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   })
-  // }
-
-  // function getCardsFromServer () {
-  //   api.getInitialCards()
-  //     .then((data) => {
-  //       setCards(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
-
-  React.useEffect(() => {
-    // getDataFromServer();
-    Promise.all([api.getUser(), api.getInitialCards()])
-    .then((data) => {
-      const [user, cards] = data;
-      setCurrentUser(user);
-      setCards(cards);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  },[])
-
   function handleUpdateUser(data) {
+    const token = localStorage.getItem('token');
     setDataIsLoading(true);
-    api.editProfile(data)
+    api.editProfile(data, token)
     .then((data) => {
       setDataIsLoading(false);
       setCurrentUser(data);
@@ -133,8 +101,9 @@ function App() {
   }
 
   function handleAvatarUpdate(link) {
+    const token = localStorage.getItem('token');
     setDataIsLoading(true);
-    api.updateAvatar(link)
+    api.updateAvatar(link, token)
     .then((data) => {
       setDataIsLoading(false);
       setCurrentUser(data);
@@ -142,29 +111,38 @@ function App() {
     })
   }
 
-  const [cards, setCards] = React.useState([]);
+  const [cards, setCards] = React.useState();
 
-  function handleLikeClick(data, isLiked) {
+  function handleLikeClick(data) {
     const newCards = cards.map((oldCard) => {
       return oldCard._id === data._id ? (data) : (oldCard)
     })
     setCards(newCards);
-    isLiked = !isLiked;
   }
 
   function handleCardLike(card) {
-      let isLiked = card.likes.some((like) => {return like._id === currentUser._id})
+      let isLiked = card.likes.some((like) => {return like._id === currentUser._id});
+      const token = localStorage.getItem('token');
       if(!isLiked) {
-          api.setLike(card._id)
+          api.setLike(card._id, token)
           .then((data) => {
-          handleLikeClick(data, isLiked);
-      })} else {
-          api.removeLike(card._id)
-          .then((data) => {
-            handleLikeClick(data, isLiked);
+          handleLikeClick(data);
+            // isLiked = !isLiked;
           })
+          //   // console.log(`like is set to ${data}`);
+          // handleLikeClick(data, isLiked);
+      } else {
+          api.removeLike(card._id, token)
+          .then((data) => {
+            handleLikeClick(data);
+            // isLiked = !isLiked;
+            // console.log(`like is unset to ${data}`)
+            // handleLikeClick(data, isLiked);
+          })
+          // isLiked = !isLiked;
+          // console.log(`isLiked changed to ${isLiked}`);
       }
-      handleLikeClick(card);
+      // handleLikeClick(card);
   }
 
   function handleDeleteCardClick(card) {
@@ -173,8 +151,9 @@ function App() {
   }
 
   function handleCardDelete(id) {
+    const token = localStorage.getItem('token');
     setDataIsLoading(true);
-    api.deleteCard(id)
+    api.deleteCard(id, token)
     .then((data) => {
       setDataIsLoading(false);
       const newCards = cards.filter((card) => {
@@ -186,13 +165,17 @@ function App() {
   }
 
   function handleAddCard(card) {
+    const token = localStorage.getItem('token');
     setDataIsLoading(true);
-    api.addCard(card)
+    api.addCard(card, token)
     .then((data) => {
       setDataIsLoading(false);
       setCards([...cards, data]);
       closeAllPopups();
     })
+  }
+  function resetSuccessPopup() {
+    setRegistered(false);
   }
 
   function handleCloseRegistrationPopup() {
@@ -213,16 +196,18 @@ function App() {
   }
 
   function showUser(data) {
-    setAuthentificatedUser(data);
+    setCurrentUser(data);
   }
   React.useEffect(() => {
     if(localStorage.getItem('token')) {
       const userToken = localStorage.getItem('token');
-      authentificateOnLoad(userToken)
+      Promise.all([api.getUser(userToken), api.getInitialCards(userToken)])
       .then((res) => {
+        const [user, cards] = res;
         if(res) {
           enableLoggedInState();
-          setAuthentificatedUser(res.data.email);
+          setCurrentUser(user);
+          setCards(cards);
           history.push('/');
         } else {
           localStorage.removeItem('token');
@@ -241,11 +226,11 @@ function App() {
     <div className="root">
       <div className="container">
         <CurrentUserContext.Provider value={currentUser}>
-          <Header loggedIn={loggedIn} user={authentificatedUser} type={headerType} width={windowWidth}/>
+          <Header loggedIn={loggedIn} type={headerType} width={windowWidth}/>
             <Switch>
               <ProtectedRoute exact path="/" loggedIn={loggedIn} component={Main} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} cards={cards} onCardLike={handleCardLike} onCardDelete={handleDeleteCardClick} />
               <Route path="/sign-in">
-                <Login handleLogin={enableLoggedInState} setTypeOfHeader={identifyHeaderType} showUser={showUser}/>
+                <Login resetSuccessPopup={resetSuccessPopup} handleRegistrationSubmit={handleRegistrationSubmit} handleLogin={enableLoggedInState} setTypeOfHeader={identifyHeaderType} showUser={showUser}/>
               </Route>
               <Route path="/sign-up">
                 <Register handleRegistrationSubmit={handleRegistrationSubmit} isRegistered={switchRegistrationMessage} setTypeOfHeader={identifyHeaderType}/>

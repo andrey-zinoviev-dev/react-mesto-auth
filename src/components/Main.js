@@ -13,7 +13,6 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext.js";
 function Main (props) {
 
     const user = React.useContext(CurrentUserContext);
-
     return (
         <main className="content">
         <section className="profile">
@@ -33,9 +32,9 @@ function Main (props) {
         </section>
         <section className="elements">
                 <ul className="elements__list">
-                    {props.cards.map((card, i) => (
-                        <Card key={card._id} onLikeClick={props.onCardLike} name={card.name} link={card.link} likes={card.likes.length} onCardClick={props.onCardClick} card={card} onDeleteClick={props.onCardDelete} />
-                    ))}
+                    {props.cards ? props.cards.map((card, i) => (
+                        <Card key={card._id} onLikeClick={props.onCardLike} name={card.name} link={card.link} likes={card.likes.length ? card.likes.length : 0 } onCardClick={props.onCardClick} card={card} onDeleteClick={props.onCardDelete} />
+                    )) : ""}
                 </ul>
         </section>
       </main>
