@@ -6,7 +6,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 export function Login(props) {
     const [formData, setFormData] = React.useState({ email:"", password: ""})
     const history = useHistory();
-    const { url } = useRouteMatch();
+    const { url, path } = useRouteMatch();
     
     function handleChange(event) {
         const { name, value } = event.target;
@@ -44,7 +44,6 @@ export function Login(props) {
     //вот тут менять стейт!!!
     React.useEffect(() => {
         props.setTypeOfHeader(url);
-        console.log(url);
     }, [])
     return (
         <section className="register">

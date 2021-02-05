@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="https://andrey-zinoviev-dev.github.io/react-mesto-auth">
+    <BrowserRouter basename = {process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
